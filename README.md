@@ -8,26 +8,41 @@ A Python script to automatically organize files in a specified folder into categ
 - Supports organizing any folder by providing the path as an argument or via prompt.
 - Non-destructive: existing folders and files not matched by categories remain unaffected.
 - Easy to use and extend with more file type categories.
+- Installable as a Python package with a simple CLI command.
+
+## Setup
+
+Before running the tool, run the setup script once to install dependencies, upgrade pip tools, and configure your environment:
+
+~~~bash
+./setup.sh
+~~~
+
+This will:
+	•	Upgrade pip, setuptools, and wheel.
+	•	Install any dependencies listed in requirements.txt (if present).
+	•	Add the file-organizer CLI command to your PATH.
 
 ## Usage
 
-Run the script with Python 3:
+After setup, you can organize files using the CLI command from anywhere:
 
 ~~~bash
-python3 file_organizer.py /path/to/folder
+file-organizer /path/to/folder
 ~~~
 
-If no folder path is provided, it defaults to organizing the Downloads folder.
+- Repalce "/path/to/folder" with your destination folder path which you want to organize.
+- If no folder path is provided, it defaults to organizing the Downloads folder.
 
 Example:
 
 ~~~bash
-python3 file_organizer.py /Users/username/Downloads
+file-organizer /Users/username/Downloads
 ~~~
 
 ## Requirements
 
-- Python 3.x
+- Python 3.6 or higher
 
 ## How it works
 
@@ -38,11 +53,11 @@ python3 file_organizer.py /Users/username/Downloads
 
 ## Notes
 
-- Running the script multiple times will not affect already organized files.
-- The script does not modify files inside existing subfolders.
+- Running the CLI multiple times will not affect already organized files.
+- The CLI does not modify files inside existing subfolders.
 - Files without known extensions are moved to the **Others** folder.
 
-# Output Text sample:
+# Sample Output:
 ✅ Moved: example.pdf → Documents
 ✅ Moved: vacation.jpg → Images
 ✅ Moved: project.zip → Archives
