@@ -45,7 +45,7 @@ def organize_folder(folder_path):
 
     print(f"\n📂 Folder '{folder_path}' organized successfully!")
 
-if __name__ == "__main__":
+def main():
     default_path = os.path.expanduser("~/Downloads")
 
     # Priority: CLI argument > User input > Default path
@@ -56,3 +56,6 @@ if __name__ == "__main__":
         folder_path = user_path if user_path else default_path
 
     organize_folder(folder_path)
+
+if __name__ == "__main__":
+    main()
