@@ -18,6 +18,9 @@ Install the latest release from PyPI:
 pip install file-organizer-advanced
 ~~~
 
+For more details, visit the PyPI page:
+https://pypi.org/project/file-organizer-advanced/
+
 ## Usage
 
 Run the CLI command to organize your files:
