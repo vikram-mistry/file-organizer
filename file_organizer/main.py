@@ -34,7 +34,6 @@ def organize_folder(folder_path):
         if os.path.isdir(item_path) and not item.lower().endswith(".app"):
             continue
 
-        # Only process files or .app bundles
         category = get_category(item)
         target_folder = os.path.join(folder_path, category)
         os.makedirs(target_folder, exist_ok=True)
@@ -46,9 +45,24 @@ def organize_folder(folder_path):
     print(f"\n📂 Folder '{folder_path}' organized successfully!")
 
 def main():
+    script_name = os.path.basename(sys.argv[0])  # dynamically get CLI name
+    usage = f"""
+Usage: {script_name} [folder_path]
+
+Organize files in the specified folder into categorized subfolders.
+
+If no folder_path is provided, the default is the Downloads folder.
+
+Options:
+  -h, --help    Show this help message and exit.
+"""
+
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+        print(usage)
+        return
+
     default_path = os.path.expanduser("~/Downloads")
 
-    # Priority: CLI argument > User input > Default path
     if len(sys.argv) > 1:
         folder_path = sys.argv[1]
     else:
